@@ -1,0 +1,6 @@
+framework module Pods_Finder_WatchKit_Extension {
+  umbrella header "Pods-Finder WatchKit Extension-umbrella.h"
+
+  export *
+  module * { export * }
+}

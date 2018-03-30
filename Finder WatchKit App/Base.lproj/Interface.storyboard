@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ISz-Tf-9qP">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="try-o2-aeo">
+            <objects>
+                <controller id="ISz-Tf-9qP" customClass="InterfaceController" customModule="Finder_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="xtp-oE-mlN">
+                            <items>
+                                <tableRow identifier="StoreRow" id="r4v-Qw-G2f" customClass="StoreRow" customModule="Finder_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.80000000000000004" alignment="left" contentMode="scaleAspectFill" layout="vertical" id="isA-HM-GPI">
+                                        <items>
+                                            <separator alignment="left" id="aCE-Xz-6Ul"/>
+                                            <group width="1" alignment="left" id="sGe-1I-Wn2" userLabel="Rating &amp; Review">
+                                                <items>
+                                                    <imageView width="0.5" height="1" alignment="left" contentMode="scaleAspectFit" id="mWY-t1-xkI"/>
+                                                    <group alignment="right" id="dzE-2n-XWu" userLabel="Review BG">
+                                                        <items>
+                                                            <label alignment="right" text="100 Reviews" id="5Zz-ft-Qjo">
+                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="font" type="system" pointSize="8"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                            <group width="1" height="0.20000000000000001" alignment="center" contentMode="scaleAspectFit" layout="vertical" id="BL9-q4-sdd">
+                                                <items>
+                                                    <label width="1" height="1" alignment="center" text="Name" textAlignment="center" id="VwG-K5-E9Z">
+                                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <group width="1" alignment="left" id="gfN-qU-FoF" userLabel="Price &amp; Distance">
+                                                <items>
+                                                    <group width="0.20000000000000001" alignment="left" id="fyH-dr-PF3" userLabel="Price BG">
+                                                        <items>
+                                                            <label alignment="center" text="$$$" id="mqk-Iu-r3N">
+                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                    <group width="0.34999999999999998" alignment="right" id="9Ut-Pg-1xv" userLabel="Distance BG">
+                                                        <items>
+                                                            <label alignment="center" text="11.22 mi" id="dkR-Fp-Y54">
+                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="distance" destination="dkR-Fp-Y54" id="oFH-75-Fj3"/>
+                                        <outlet property="distanceBG" destination="9Ut-Pg-1xv" id="uoE-ee-LgP"/>
+                                        <outlet property="name" destination="VwG-K5-E9Z" id="F3B-BC-5Yt"/>
+                                        <outlet property="nameBackground" destination="BL9-q4-sdd" id="tZT-qT-VRF"/>
+                                        <outlet property="price" destination="mqk-Iu-r3N" id="ylW-dj-Nuv"/>
+                                        <outlet property="priceBG" destination="fyH-dr-PF3" id="O2q-i5-1BH"/>
+                                        <outlet property="rating" destination="mWY-t1-xkI" id="Aio-iR-iVc"/>
+                                        <outlet property="reviewBG" destination="dzE-2n-XWu" id="NKu-EZ-i3A"/>
+                                        <outlet property="reviews" destination="5Zz-ft-Qjo" id="gu0-dv-GcO"/>
+                                        <outlet property="rowGroup" destination="isA-HM-GPI" id="XRz-xx-dFa"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="shopTable" destination="xtp-oE-mlN" id="8mJ-oa-bla"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="708" y="145"/>
+        </scene>
+    </scenes>
+</document>
