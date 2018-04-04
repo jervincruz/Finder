@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ISz-Tf-9qP">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Kfr-7q-C0e">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
     </dependencies>
     <scenes>
+        <!--Selection Controller-->
+        <scene sceneID="Ri2-yN-pct">
+            <objects>
+                <controller id="Kfr-7q-C0e" customClass="SelectionController" customModule="Finder_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Find A Spot" id="bb3-UF-xbT">
+                            <connections>
+                                <action selector="findASpotButton" destination="Kfr-7q-C0e" id="fBf-xC-l32"/>
+                            </connections>
+                        </button>
+                        <picker height="0.5" alignment="left" id="zc5-Vn-vO7"/>
+                        <button width="1" alignment="left" title="Search" id="Ju7-7h-INA">
+                            <connections>
+                                <segue destination="ISz-Tf-9qP" kind="push" identifier="searchSegue" id="BLv-8H-6Ks"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="413" y="193"/>
+        </scene>
         <!--Interface Controller-->
         <scene sceneID="try-o2-aeo">
             <objects>
@@ -83,7 +104,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="708" y="145"/>
+            <point key="canvasLocation" x="691" y="193"/>
         </scene>
     </scenes>
 </document>

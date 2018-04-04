@@ -9,30 +9,17 @@
 import UIKit
 import CoreLocation
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
-    let locationManager : CLLocationManager = CLLocationManager()
-    var currentLocation = CLLocation()
-    var latitude = ""
-    var longitude = ""
-    
     var window: UIWindow?
+    
+    var locationManager = CLLocationManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
 
-//        if CLLocationManager.locationServicesEnabled() {
-//            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-//            locationManager.requestAlwaysAuthorization()
-//            locationManager.startUpdatingLocation()
-//        }
-//
-//        locationManager.requestLocation()
         return true
     }
 

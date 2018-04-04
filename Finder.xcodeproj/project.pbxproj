@@ -21,6 +21,7 @@
 		E21EE6C8206BEA910046DDC7 /* Finder WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E21EE6C7206BEA910046DDC7 /* Finder WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E21EE6CF206BEA910046DDC7 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21EE6CE206BEA910046DDC7 /* ExtensionDelegate.swift */; };
 		E21EE6D1206BEA910046DDC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21EE6D0206BEA910046DDC7 /* Assets.xcassets */; };
+		E22C80A02072DE9C007D75D5 /* SelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C809F2072DE9C007D75D5 /* SelectionController.swift */; };
 		E2851024206C227B00BC310E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21EE6E0206BFA060046DDC7 /* InterfaceController.swift */; };
 		E2851026206C250600BC310E /* StoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2851025206C250600BC310E /* StoreRow.swift */; };
 		E2DB5679206EF5D5009460E0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DB5678206EF5D2009460E0 /* CoreLocation.framework */; };
@@ -93,6 +94,8 @@
 		E21EE6D0206BEA910046DDC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E21EE6D2206BEA910046DDC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21EE6E0206BFA060046DDC7 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		E22C809F2072DE9C007D75D5 /* SelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionController.swift; sourceTree = "<group>"; };
+		E23ACD682072BF4A003D68C6 /* Finder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finder.entitlements; sourceTree = "<group>"; };
 		E2851025206C250600BC310E /* StoreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRow.swift; sourceTree = "<group>"; };
 		E2DB5678206EF5D2009460E0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FF0EBAC9A34D06813A913DB5 /* Pods-Finder WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finder WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finder WatchKit App/Pods-Finder WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		E21EE6A8206BEA910046DDC7 /* Finder */ = {
 			isa = PBXGroup;
 			children = (
+				E23ACD682072BF4A003D68C6 /* Finder.entitlements */,
 				E21EE6A9206BEA910046DDC7 /* AppDelegate.swift */,
 				E21EE6AB206BEA910046DDC7 /* ViewController.swift */,
 				E21EE6AD206BEA910046DDC7 /* Main.storyboard */,
@@ -187,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				E21EE6E0206BFA060046DDC7 /* InterfaceController.swift */,
+				E22C809F2072DE9C007D75D5 /* SelectionController.swift */,
 				E2851025206C250600BC310E /* StoreRow.swift */,
 				E21EE6CE206BEA910046DDC7 /* ExtensionDelegate.swift */,
 				E21EE6D0206BEA910046DDC7 /* Assets.xcassets */,
@@ -280,12 +285,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Jervin Cruz";
 				TargetAttributes = {
 					E21EE6A5206BEA910046DDC7 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					E21EE6B7206BEA910046DDC7 = {
 						CreatedOnToolsVersion = 9.2;
@@ -470,11 +483,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Finder WatchKit Extension/Pods-Finder WatchKit Extension-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +515,7 @@
 			files = (
 				E21EE6CF206BEA910046DDC7 /* ExtensionDelegate.swift in Sources */,
 				E2851024206C227B00BC310E /* InterfaceController.swift in Sources */,
+				E22C80A02072DE9C007D75D5 /* SelectionController.swift in Sources */,
 				E2851026206C250600BC310E /* StoreRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +577,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -568,6 +585,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -595,7 +613,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -618,6 +636,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -625,6 +644,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -646,7 +666,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

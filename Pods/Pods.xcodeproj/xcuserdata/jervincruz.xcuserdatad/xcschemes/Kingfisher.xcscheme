@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6FAAD76A05DF3C3FBBA01D3DBE4A1E3E"
-               BuildableName = "Pods_Finder_WatchKit_Extension.framework"
-               BlueprintName = "Pods-Finder WatchKit Extension"
+               BlueprintIdentifier = "4A3C7BC78BF4F47C20B40C966036BB23"
+               BuildableName = "Kingfisher.framework"
+               BlueprintName = "Kingfisher"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6FAAD76A05DF3C3FBBA01D3DBE4A1E3E"
-            BuildableName = "Pods_Finder_WatchKit_Extension.framework"
-            BlueprintName = "Pods-Finder WatchKit Extension"
+            BlueprintIdentifier = "4A3C7BC78BF4F47C20B40C966036BB23"
+            BuildableName = "Kingfisher.framework"
+            BlueprintName = "Kingfisher"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

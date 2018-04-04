@@ -18,18 +18,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, CLLocationManagerDelegat
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
         
-        DispatchQueue.main.async {
-            self.locationManager = CLLocationManager()
-            if CLLocationManager.locationServicesEnabled() {
-                self.locationManager?.delegate = self
-                self.locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-                self.locationManager?.requestAlwaysAuthorization()
-                self.locationManager?.startUpdatingLocation()
-            }
-            self.locationManager?.requestAlwaysAuthorization()
-            self.locationManager?.requestWhenInUseAuthorization()
-            self.locationManager?.requestLocation()
-        }
+//        DispatchQueue.main.async {
+//            self.locationManager = CLLocationManager()
+//            if CLLocationManager.locationServicesEnabled() {
+//                self.locationManager?.delegate = self
+//                self.locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//                self.locationManager?.requestAlwaysAuthorization()
+//                self.locationManager?.startUpdatingLocation()
+//            }
+//            self.locationManager?.requestAlwaysAuthorization()
+//            self.locationManager?.requestWhenInUseAuthorization()
+//            self.locationManager?.requestLocation()
+//        }
 
     }
 
@@ -66,18 +66,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, CLLocationManagerDelegat
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        DispatchQueue.main.async {
-            guard let locationValue : CLLocationCoordinate2D = manager.location?.coordinate else { return }
-            print("locations = \(locationValue.latitude) \(locationValue.longitude)")
-            self.latitude = locationValue.latitude
-            self.longitude = locationValue.longitude
-     
-        }    
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        DispatchQueue.main.async {
+//            guard let locationValue : CLLocationCoordinate2D = manager.location?.coordinate else { return }
+//            print("locations = \(locationValue.latitude) \(locationValue.longitude)")
+//            self.latitude = locationValue.latitude
+//            self.longitude = locationValue.longitude
+//     
+//        }    
+//    }
+//    
+//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//        print(error)
+//    }
 
 }

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Finder</string>
+	<string>Finder is requiring access to your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Finder</string>
+	<string>Finder is requiring access to your location</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
