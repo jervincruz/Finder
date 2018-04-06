@@ -11,6 +11,8 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 import Kingfisher
+import EMTLoadingIndicator
+import HexColors
 
 class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
     
@@ -43,10 +45,16 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
     var pmark : [CLPlacemark]!
     var location : CLLocation!
 
-    
+    private var indicator : EMTLoadingIndicator?
+    @IBOutlet var image: WKInterfaceImage!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        indicator = EMTLoadingIndicator(interfaceController: self, interfaceImage: image!, width: 40, height: 40, style: .line)
+        EMTLoadingIndicator.circleLineColor = UIColor("CBE4D1")!
+        //EMTLoadingIndicator.circleLineColor = UIColor(red: 203, green: 228, blue: 209, alpha: 1)
+        indicator?.prepareImagesForWait()
+        indicator?.showWait()
         
         headers = ["Authorization": "Bearer " + api_key]
         
@@ -185,6 +193,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
         default:
             row.rating.setImage(UIImage(named: "small_0"))
         }
+        indicator?.hide()
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
@@ -198,18 +207,8 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
         mapItem.openInMaps(launchOptions: options)
     }
     
+    static func downloadImage(url : URL, completion: @escaping (UIImage?) -> Void) {
+        
+    }
+    
 }
-
-//public extension WKInterfaceImage {
-//    public func setImageWithURL(url: String, scale: CGFloat = 1.0) -> WKInterfaceImage {
-//
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//            if (data != nil && error == nil) {
-//                let image = UIImage(data: data!, scale: scale)
-//
-//                dispatch_asyn
-//            }
-//        }
-//
-//    }
-//}

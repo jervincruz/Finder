@@ -23,7 +23,7 @@
                             </connections>
                         </picker>
                         <button width="1" alignment="left" verticalAlignment="bottom" title="Find A Spot" id="bb3-UF-xbT">
-                            <color key="titleColor" red="0.7975731492" green="0.89464515450000004" blue="0.82102376219999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleColor" red="0.79607843137254897" green="0.89411764705882346" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="findASpotButton" destination="Kfr-7q-C0e" id="fBf-xC-l32"/>
                             </connections>
@@ -41,10 +41,10 @@
             <objects>
                 <controller identifier="InterfaceController" id="ISz-Tf-9qP" customClass="InterfaceController" customModule="Finder_WatchKit_Extension">
                     <items>
-                        <table alignment="left" spacing="1.5" id="xtp-oE-mlN">
+                        <table alignment="left" spacing="20" id="xtp-oE-mlN">
                             <items>
                                 <tableRow identifier="StoreRow" id="r4v-Qw-G2f" customClass="StoreRow" customModule="Finder_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.84999999999999998" alignment="left" contentMode="scaleAspectFill" layout="vertical" spacing="1.5" id="isA-HM-GPI">
+                                    <group key="rootItem" width="1" height="100" alignment="left" contentMode="scaleAspectFill" layout="vertical" spacing="1.5" id="isA-HM-GPI">
                                         <items>
                                             <separator alignment="left" id="aCE-Xz-6Ul"/>
                                             <group width="1" alignment="left" id="sGe-1I-Wn2" userLabel="Rating &amp; Review">
@@ -104,8 +104,10 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <imageView alignment="center" verticalAlignment="center" image="waitIndicatorGraphic-0" id="3nn-Y6-YiD" userLabel="Loading Indicator"/>
                     </items>
                     <connections>
+                        <outlet property="image" destination="3nn-Y6-YiD" id="pkQ-gl-YYs"/>
                         <outlet property="shopTable" destination="xtp-oE-mlN" id="8mJ-oa-bla"/>
                     </connections>
                 </controller>

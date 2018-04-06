@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6FAAD76A05DF3C3FBBA01D3DBE4A1E3E"
+               BlueprintIdentifier = "C84483DAA5EE5C2AB1E6D80E18A93733"
                BuildableName = "Pods_Finder_WatchKit_Extension.framework"
                BlueprintName = "Pods-Finder WatchKit Extension"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6FAAD76A05DF3C3FBBA01D3DBE4A1E3E"
+            BlueprintIdentifier = "C84483DAA5EE5C2AB1E6D80E18A93733"
             BuildableName = "Pods_Finder_WatchKit_Extension.framework"
             BlueprintName = "Pods-Finder WatchKit Extension"
             ReferencedContainer = "container:Pods.xcodeproj">

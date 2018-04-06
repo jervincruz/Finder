@@ -26,5 +26,7 @@ target 'Finder WatchKit Extension' do
 pod 'SwiftyJSON'
 pod 'Alamofire'
 pod 'Kingfisher'
+pod 'EMTLoadingIndicator'
+pod 'HexColors'
 
 end
