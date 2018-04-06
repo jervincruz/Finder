@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Kfr-7q-C0e">
-    <device id="watch38" orientation="portrait">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,31 +14,37 @@
             <objects>
                 <controller id="Kfr-7q-C0e" customClass="SelectionController" customModule="Finder_WatchKit_Extension">
                     <items>
-                        <button width="1" alignment="left" title="Find A Spot" id="bb3-UF-xbT">
+                        <label width="1" alignment="center" text="F I N D E R" textAlignment="center" id="eN6-lD-WUB">
+                            <color key="textColor" red="0.7975731492" green="0.89464515450000004" blue="0.82102376219999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                        <picker height="0.5" alignment="left" id="zc5-Vn-vO7">
+                            <connections>
+                                <action selector="pickerAction:" destination="Kfr-7q-C0e" id="Dwq-zA-ZtC"/>
+                            </connections>
+                        </picker>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Find A Spot" id="bb3-UF-xbT">
+                            <color key="titleColor" red="0.7975731492" green="0.89464515450000004" blue="0.82102376219999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="findASpotButton" destination="Kfr-7q-C0e" id="fBf-xC-l32"/>
                             </connections>
                         </button>
-                        <picker height="0.5" alignment="left" id="zc5-Vn-vO7"/>
-                        <button width="1" alignment="left" title="Search" id="Ju7-7h-INA">
-                            <connections>
-                                <segue destination="ISz-Tf-9qP" kind="push" identifier="searchSegue" id="BLv-8H-6Ks"/>
-                            </connections>
-                        </button>
                     </items>
+                    <connections>
+                        <outlet property="sortPicker" destination="zc5-Vn-vO7" id="mmS-CZ-yaX"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="413" y="193"/>
         </scene>
-        <!--Interface Controller-->
+        <!--InterfaceController-->
         <scene sceneID="try-o2-aeo">
             <objects>
-                <controller id="ISz-Tf-9qP" customClass="InterfaceController" customModule="Finder_WatchKit_Extension">
+                <controller identifier="InterfaceController" id="ISz-Tf-9qP" customClass="InterfaceController" customModule="Finder_WatchKit_Extension">
                     <items>
-                        <table alignment="left" id="xtp-oE-mlN">
+                        <table alignment="left" spacing="1.5" id="xtp-oE-mlN">
                             <items>
                                 <tableRow identifier="StoreRow" id="r4v-Qw-G2f" customClass="StoreRow" customModule="Finder_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.80000000000000004" alignment="left" contentMode="scaleAspectFill" layout="vertical" id="isA-HM-GPI">
+                                    <group key="rootItem" width="1" height="0.84999999999999998" alignment="left" contentMode="scaleAspectFill" layout="vertical" spacing="1.5" id="isA-HM-GPI">
                                         <items>
                                             <separator alignment="left" id="aCE-Xz-6Ul"/>
                                             <group width="1" alignment="left" id="sGe-1I-Wn2" userLabel="Rating &amp; Review">
@@ -47,7 +53,7 @@
                                                     <group alignment="right" id="dzE-2n-XWu" userLabel="Review BG">
                                                         <items>
                                                             <label alignment="right" text="100 Reviews" id="5Zz-ft-Qjo">
-                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.7975731492" green="0.89464515450000004" blue="0.82102376219999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="font" type="system" pointSize="8"/>
                                                             </label>
                                                         </items>
@@ -66,7 +72,7 @@
                                                     <group width="0.20000000000000001" alignment="left" id="fyH-dr-PF3" userLabel="Price BG">
                                                         <items>
                                                             <label alignment="center" text="$$$" id="mqk-Iu-r3N">
-                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.7975731492" green="0.89464515450000004" blue="0.82102376219999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="font" type="system" pointSize="10"/>
                                                             </label>
                                                         </items>
@@ -74,7 +80,7 @@
                                                     <group width="0.34999999999999998" alignment="right" id="9Ut-Pg-1xv" userLabel="Distance BG">
                                                         <items>
                                                             <label alignment="center" text="11.22 mi" id="dkR-Fp-Y54">
-                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.7975731492" green="0.89464515450000004" blue="0.82102376219999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="font" type="system" pointSize="10"/>
                                                             </label>
                                                         </items>

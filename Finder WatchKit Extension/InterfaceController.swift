@@ -22,6 +22,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
     var params : Parameters?
     let delegate = WKExtension.shared().delegate as! ExtensionDelegate
     var userSelection = ""
+    var sortSelection = ""
     
     var stores : [String] = []
     var statuses : [Bool] = []
@@ -52,21 +53,20 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         
-        //self.enableBasicLocationServices()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7)){
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)){
             
             if let values = context as? [String] {
                 print("Values:", values)
                 self.userSelection = values[0]
                 self.latitude = CLLocationDegrees(values[1])
                 self.longitude = CLLocationDegrees(values[2])
+                self.sortSelection = values[3]
             } else {
                 self.userSelection = "Food"
             }
             
             // Get Current Location
-            self.params = ["term": self.userSelection, "latitude": self.latitude, "longitude":                                                self.longitude, "limit": 10, "offset": 0]
+            self.params = ["term": self.userSelection, "latitude": self.latitude, "longitude":                                                self.longitude, "limit": 20, "offset": 0, "sort_by": self.sortSelection, "open_now": true]
             self.getData(url: self.url)
             print("Lattts: ", self.latitude)
             print("Longggg:", self.longitude)
@@ -78,7 +78,6 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        
     }
     
     override func didDeactivate() {
@@ -161,7 +160,6 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
                 }
             })
         }
-        
 
         switch ratings[rowIndex]{
         case 0:
@@ -186,21 +184,18 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
             row.rating.setImage(UIImage(named: "small_5"))
         default:
             row.rating.setImage(UIImage(named: "small_0"))
-
         }
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
-   
-            let coordinate = CLLocationCoordinate2DMake(coordinates[rowIndex].latitude, coordinates[rowIndex].longitude)
-            let region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.01, 0.02))
-            let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
-            let mapItem = MKMapItem(placemark: placemark)
-            let options = [
-                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: region.center),
-                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: region.span)]
-            mapItem.name = self.stores[rowIndex]
-            mapItem.openInMaps(launchOptions: options)
+        let coordinate = CLLocationCoordinate2DMake(coordinates[rowIndex].latitude, coordinates[rowIndex].longitude)
+        let region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.01, 0.02))
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: region.center),
+                       MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: region.span)]
+        mapItem.name = self.stores[rowIndex]
+        mapItem.openInMaps(launchOptions: options)
     }
     
 }

@@ -16,6 +16,11 @@ class SelectionController : WKInterfaceController, CLLocationManagerDelegate {
     var locationManager : CLLocationManager!
     var latitude : CLLocationDegrees!
     var longitude : CLLocationDegrees!
+    var sort : [String] = ["best_match", "distance", "rating"]
+    var sortSelection : String = "best_match"
+    
+    @IBOutlet var sortPicker: WKInterfacePicker!
+    
     
     override func willActivate() {
         super.willActivate()
@@ -24,6 +29,7 @@ class SelectionController : WKInterfaceController, CLLocationManagerDelegate {
         locationManager.delegate = self
         
         self.enableBasicLocationServices()
+        setPickerItems()
     }
     
     override func didDeactivate() {
@@ -35,6 +41,10 @@ class SelectionController : WKInterfaceController, CLLocationManagerDelegate {
         presentTextInputController(withSuggestions: ["Food", "Gas", "ATM"], allowedInputMode: .plain) { [unowned self] result in
             guard let result = result?.first as? String else { return }
             self.userSelection = result
+            
+            DispatchQueue.main.async {
+            self.pushController(withName: "InterfaceController", context: [self.userSelection, String(self.latitude), String(self.longitude), self.sortSelection])
+            }
         }
         
     }
@@ -43,7 +53,7 @@ class SelectionController : WKInterfaceController, CLLocationManagerDelegate {
         if userSelection == nil {
             userSelection = "Food"
         }
-        return [userSelection, String(latitude), String(longitude)]
+        return [userSelection, String(latitude), String(longitude), sortSelection]
     }
     
     func enableBasicLocationServices() {
@@ -112,7 +122,26 @@ class SelectionController : WKInterfaceController, CLLocationManagerDelegate {
         print(error)
         print(error.localizedDescription)
     }
-
+    
+    func setPickerItems() {
+        
+        let sortByBestMatch : WKPickerItem = WKPickerItem()
+        sortByBestMatch.title = "Best Match"
+        
+        let sortByDistance : WKPickerItem = WKPickerItem()
+        sortByDistance.title = "Closest"
+        
+        let sortByRatings : WKPickerItem = WKPickerItem()
+        sortByRatings.title = "Highest Ratings"
+        
+        sortPicker.setItems([sortByBestMatch, sortByDistance, sortByRatings])
+        sortPicker.focus()
+        sortPicker.setEnabled(true)        
+    }
+    @IBAction func pickerAction(_ value: Int) {
+        sortSelection = sort[value]
+        print(sortSelection)
+    }
     
 }
 
